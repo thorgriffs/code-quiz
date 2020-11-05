@@ -7,15 +7,36 @@
 </head>
 
 <body>
-    <div class="start">
+    <!-- header to hold the highscore link and the timer-->
+    <header>
+        <div id=viewTimer> <!-- maybe make this a class? -->
+
+        </div>
+        <div id="timer"> <!-- maybe make this a class? -->
+            
+        </div>
+    </header>
+    <!-- Quiz landing page -->
+    <div class="startQuiz">
         <h1>Coding Quiz Challenge</h1>
         <p>Try to answer the following code-related questions within the time limit.  
             Keep in mind that incorrect answers will penalize your scoretime by ten seconds!</p>
         <button type="button">Start Quiz</button>
     </div>
-    <div class="questions">
+    <!-- Quiz div that dynamically have the questions passed in from javascript -->
+    <div class="quizTime">
         <h2>my question will go here...?</h2>
         <button type="button">the answers are the buttons</button>
+    </div>
+
+    <!-- Game over page that displays score and collects player initials -->
+    <div class=gameOver>
+
+    </div>
+
+    <!-- page that displays and allows user to clear high score -->
+    <div class=highScore>
+
     </div>
 
     <script type="text/javascript" src="./script.js"></script>
