@@ -54,10 +54,12 @@ function startQuiz() {
 
     // hide the .startQuiz div
     var quizStart = document.querySelector('.startQuiz');
-    quizStart.classList.add('.hidden');
+    quizStart.classList.add('hidden');
 
     // show the quiz questions and answers
     var qa = document.querySelector('.quizTime');
+    qa.classList.remove('hidden');
+    
 
     // once answered, display the next question
 
@@ -81,10 +83,10 @@ function showGameOver() {
     clearInterval(interval);
         // hide the questions div
         var qa = document.querySelector('.quizTime');
-        qa.classList.remove('.hidden');            
+        qa.classList.remove('hidden');            
         // show .gameOver div
         var showGameOver = document.querySelector('.gameOver');
-        showGameOver.classList.add('.hidden');
+        showGameOver.classList.add('hidden');
 }
     // displays final score
     // allow user to enter initials to store high score
