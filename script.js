@@ -11,6 +11,7 @@ var timerEL = document.getElementById("timer");
 var startingTime = 60
 var interval
 
+
 function showTimer() {
     var startingTime = 60;
 
@@ -39,10 +40,28 @@ var quizQuestions = [
 ]
 
 // function to start the quiz
-    // on click of <start quiz> button
+function startQuiz () {
     // set/reset score to zero
+    score = 0;
+
     // start timer (set to 60 seconds)
+    startingTime = 60;
+
     // display the first set of questions/answers
+    questionIndex = 0;
+    
+    // hide the .startQuiz div
+    var quizStart = document.querySelector(".startQuiz");
+    quizStart.classList.add(".hidden");
+
+
+
+
+}
+    // on click of <start quiz> button
+    
+    
+    
     // hide the .startQuiz div
 
 // show questions (function?)
