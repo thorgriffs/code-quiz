@@ -1,12 +1,11 @@
 // create a var countdownTime = 60; to create the timer that conditionally hides
 
-// Timer
-
 var timerEL = document.getElementById("timer");
 var timeRemaining = 60
 var interval
+var questionIndex = 0;
 
-
+// Timer
 function showTimer() {
     interval = setInterval(function() {
         timerEL.textContent = "Timer: " + timeRemaining;
@@ -44,12 +43,11 @@ var quizQuestions = [
     correctAnswer: 3}
 ]
 
-// function to start the quiz
+// function to start the quiz on click of Start Quiz button
 function startQuiz() {
     // set/reset quiz variables
     score = 0;    
     timeRemaining = 60;    
-    questionIndex = 0;
     showTimer();
 
     // hide the .startQuiz div
@@ -58,25 +56,25 @@ function startQuiz() {
 
     // show the quiz questions and answers
     var qa = document.querySelector('.quizTime');
-    qa.classList.remove('hidden');
-    
+    qa.classList.remove('hidden');    
 
     // once answered, display the next question
 
-
-
-
+    showQuestion();
 }
-    // on click of <start quiz> button
-    
-    
-    
-    // hide the .startQuiz div
 
 // show questions (function?)
+function showQuestion() {
+var qa = document.querySelector.apply('.quizTime');
+qa.textContent = '';
+
+var questionDisplay = document.createElement('h2');
+questionDisplay.textContent = quizQuestions.question[0];
+qa.appendChild(questionDisplay);
     // display each question and answer set from var quizQuestions
     // determine if game is at the end to then show the gameOver div
     // hide the questions div
+}
 
 // gameOver
 function showGameOver() {
