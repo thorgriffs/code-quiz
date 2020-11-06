@@ -5,6 +5,14 @@ var timeRemaining = 60
 var interval
 var questionIndex = 0;
 
+// hide the quiz questions and answers
+var qa = document.querySelector('.quizTime');
+qa.classList.add('hidden');    
+
+// hide the .gameOver div
+var gameOver = document.querySelector('.gameOver');
+gameOver.classList.add('hidden');
+
 // Timer
 function showTimer() {
     interval = setInterval(function() {
@@ -52,7 +60,7 @@ function startQuiz() {
 
     // hide the .startQuiz div
     var quizStart = document.querySelector('.startQuiz');
-    quizStart.classList.add('hidden');
+    quizStart.classList.add('hidden');    
 
     // show the quiz questions and answers
     var qa = document.querySelector('.quizTime');
@@ -65,6 +73,8 @@ function startQuiz() {
 
 // show questions (function?)
 function showQuestion() {
+var gameOver = document.querySelector('.gameOver');
+gameOver.classList.add('hidden');
 var qa = document.querySelector.apply('.quizTime');
 qa.textContent = '';
 
