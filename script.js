@@ -75,11 +75,11 @@ function startQuiz() {
 function showQuestion() {
 var gameOver = document.querySelector('.gameOver');
 gameOver.classList.add('hidden');
-var qa = document.querySelector.apply('.quizTime');
+var qa = document.querySelector('.quizTime');
 qa.textContent = '';
 
 var questionDisplay = document.createElement('h2');
-questionDisplay.textContent = quizQuestions.question[0];
+questionDisplay.textContent = quizQuestions[0].question;
 qa.appendChild(questionDisplay);
     // display each question and answer set from var quizQuestions
     // determine if game is at the end to then show the gameOver div
