@@ -15,12 +15,10 @@ function showTimer() {
         if (timeRemaining <= 0) {
             timerEL.textContent = "Timer: 00";
             console.log("You are at zero");
-            
+            showGameOver();            
         }
     }, 1000);
 }
-
-showTimer();
 
 // create variables to hold the questions and answers and identify the answers that are true/false
 
@@ -47,22 +45,19 @@ var quizQuestions = [
 ]
 
 // function to start the quiz
-function quizBegins () {
-    // set/reset score to zero
-    score = 0;
-
-    // start timer (set to 60 seconds)
-    timeRemaining = 60;
-
-    // display the first set of questions/answers
+function startQuiz() {
+    // set/reset quiz variables
+    score = 0;    
+    timeRemaining = 60;    
     questionIndex = 0;
+    showTimer();
 
     // hide the .startQuiz div
-    var quizStart = document.querySelector(".startQuiz");
-    quizStart.classList.add(".hidden");
+    var quizStart = document.querySelector('.startQuiz');
+    quizStart.classList.add('.hidden');
 
     // show the quiz questions and answers
-    var qa = document.querySelector(".quizTime");
+    var qa = document.querySelector('.quizTime');
 
     // once answered, display the next question
 
@@ -85,11 +80,11 @@ function quizBegins () {
 function showGameOver() {
     clearInterval(interval);
         // hide the questions div
-        var qa = document.querySelector(".quizTime");
-        qa.classList.remove(".hidden");            
+        var qa = document.querySelector('.quizTime');
+        qa.classList.remove('.hidden');            
         // show .gameOver div
-        var showGameOver = document.querySelector(".gameOver");
-        showGameOver.classList.add(".hidden");
+        var showGameOver = document.querySelector('.gameOver');
+        showGameOver.classList.add('.hidden');
 }
     // displays final score
     // allow user to enter initials to store high score
