@@ -1,10 +1,5 @@
 // create a var countdownTime = 60; to create the timer that conditionally hides
 
-
-
-// I need some functions here, but not sure what yet.  Will need to loop over questions/answers, 
-// and also conditionally hide divs
-
 // Timer
 
 var timerEL = document.getElementById("timer");
@@ -33,10 +28,21 @@ showTimer();
 // create variables to hold the questions and answers and identify the answers that are true/false
 
 var quizQuestions = [
-    {question: "Commonly used data types DO NOT include:", answers: ["strings", ,"booleans", "alerts", "numbers"], correctAnswer: 2}
-    {question: "q2", answers: []}, 
-    {question: "q3", answers: []},
-    {question: "q4", answers: []}
+    {question: "Commonly used data types DO NOT include:", 
+    answers: ["strings", ,"booleans", "alerts", "numbers"], 
+    correctAnswer: 2},
+    {question: "The condition in an if/else statement is enclosed within _____.", 
+    answers: ["quotes", "curly brackets", "parentheses", "square brackets"],
+    correctAnswer: 2},
+    {question: "Arrays in JavaScript can be used to store ____.", 
+    answers: ["numbers and strings", "other arrays", "booleans", "all of the above"],
+    correctAnswer: 3},
+    {question: "String values must be enclosed within ____ when being assigned to variables", 
+    answers: ["commas", "curly brackets", "quotes", "parentheses"],
+    correctAnswer: 2},
+    {question: "A very useful tool used during development and debugging for printing content to the debugger is:",
+    answers: ["JavaScript", "terminal/bash", "for loops", "console.log"],
+    correctAnswer: 3}
 ]
 
 // function to start the quiz
@@ -49,7 +55,7 @@ function startQuiz () {
 
     // display the first set of questions/answers
     questionIndex = 0;
-    
+
     // hide the .startQuiz div
     var quizStart = document.querySelector(".startQuiz");
     quizStart.classList.add(".hidden");
