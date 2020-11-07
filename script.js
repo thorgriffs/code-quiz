@@ -33,6 +33,9 @@ function showStart() {
     // Display starting page
     var quizStart = document.querySelector('.startQuiz');
     quizStart.classList.remove('hidden');     
+    // Display header
+    var header = document.querySelector('header');
+    header.classList.remove('hidden');
     // Hide quiz questions and answers
     var qa = document.querySelector('.quizTime');
     qa.classList.add('hidden');    
@@ -151,12 +154,16 @@ function showGameOver() {
 
 // highScore
 function showHighScore() {
+    clearInterval(interval);
     // hide the .startQuiz div
     var quizStart = document.querySelector('.startQuiz');
     quizStart.classList.add('hidden');    
     // hide .gameOver div
     var showGameOver = document.querySelector('.gameOver');
     showGameOver.classList.add('hidden');
+    // Hide quiz questions and answers
+    var qa = document.querySelector('.quizTime');
+    qa.classList.add('hidden'); 
     // show high score div
     var highScore = document.querySelector('.highScore');
     highScore.classList.remove('hidden');

@@ -7,12 +7,6 @@ header {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.answer {
-    margin: 2px;
-    background-color: #6600cc;
-    color: #ffffff;
-}
-
 .center {
     width: 50%;
     margin: 0 auto;
@@ -25,4 +19,23 @@ header {
     margin: 0 auto;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: left;
+}
+
+button {
+    margin: 2px;
+    padding: 5px;
+    background-color: #6600cc;
+    color: #ffffff;
+}
+
+.answer {
+    margin: 2px;
+    padding: 2px;
+    background-color: #6600cc;
+    color: #ffffff;
+}
+
+#showScores {
+    margin: 2px;
+    padding: 2px;
 }
