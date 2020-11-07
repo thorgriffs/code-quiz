@@ -103,6 +103,7 @@ function showQuestion() {
         button.onclick = function() {
             onAnswerClicked(i);
         }
+        button.classList.add('answer');
         answersDiv.appendChild(document.createElement('br'));
         answersDiv.appendChild(button);
     }

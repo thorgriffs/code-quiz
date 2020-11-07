@@ -9,16 +9,16 @@
 <body>
     <!-- header to hold the highscore link and the timer-->
     <header>
-        <div id=viewHighScore>
+        <div id="viewHighScore" style="display: inline-block">
             <span onclick="showHighScore()">View Highscores</span>
         </div>
-        <div>
+        <div id="timeKeeper" style="float:right">
             Time: <span id="timer">0</span>
         </div>
     </header>
     
     <!-- Quiz landing page -->
-    <div class="startQuiz">
+    <div class="startQuiz center">
         <h1>Coding Quiz Challenge</h1>
         <p>Try to answer the following code-related questions within the time limit.  
             Keep in mind that incorrect answers will penalize your scoretime by ten seconds!</p>
@@ -26,13 +26,13 @@
     </div>
     
     <!-- Quiz div that dynamically has the questions passed in from javascript -->
-    <div class="quizTime">
+    <div class="quizTime left">
         <h2 id="quizQuestion"></h2>
         <div id="answers"></div>
     </div>
 
     <!-- Game over page that displays score and collects player initials -->
-    <div class="gameOver">
+    <div class="gameOver left">
         <h2>All done!</h2>
         <p>Your final score is <span id="score"></span></p>
         <label for="initials">Enter initials:</label>
@@ -41,7 +41,7 @@
     </div>
 
     <!-- page that displays highscores and allows user to clear highscores list -->
-    <div class="highScore">
+    <div class="highScore left">
         <h2>High Scores</h2>
         <div id="showScores">
 
