@@ -10,12 +10,13 @@
     <!-- header to hold the highscore link and the timer-->
     <header>
         <div id=viewHighScore>
-            View Highscores <!-- add event listener?? -->
+            <span onclick="showHighScore()">View Highscores</span>
         </div>
-        <div id="timer">
-
+        <div>
+            Time: <span id="timer">0</span>
         </div>
     </header>
+    
     <!-- Quiz landing page -->
     <div class="startQuiz">
         <h1>Coding Quiz Challenge</h1>
@@ -23,17 +24,17 @@
             Keep in mind that incorrect answers will penalize your scoretime by ten seconds!</p>
         <button type="button" onclick="startQuiz()">Start Quiz</button>
     </div>
+    
     <!-- Quiz div that dynamically has the questions passed in from javascript -->
     <div class="quizTime">
         <h2 id="quizQuestion"></h2>
-        <button type="button">the answers are the buttons</button>
+        <div id="answers"></div>
     </div>
 
     <!-- Game over page that displays score and collects player initials -->
     <div class="gameOver">
         <h2>All done!</h2>
-        <button type="button" onclick="restartQuiz()">Go Back</button>
-
+        <button type="button" onclick="showHighScore()">Submit</button>
     </div>
 
     <!-- page that displays highscores and allows user to clear highscores list -->
@@ -43,7 +44,7 @@
             <li>Score 2</li>
             <li>Score 3</li>
         </ul>
-
+        <button type="button" onclick="showStart()">Go Back</button>
     </div>
 
     <script type="text/javascript" src="./script.js"></script>
