@@ -105,6 +105,7 @@ function showQuestion() {
     }
 }
 
+// Determine if selected answer is right or wrong
 function onAnswerClicked(answerIndex) {
     var currentQuestion = quizQuestions[questionIndex];
     var isCorrect = currentQuestion.correctAnswer === answerIndex;
@@ -127,12 +128,17 @@ function onAnswerClicked(answerIndex) {
 
 function showGameOver() {
     clearInterval(interval);
-        // hide the questions div
-        var qa = document.querySelector('.quizTime');
-        qa.classList.add('hidden');            
-        // show .gameOver div
-        var showGameOver = document.querySelector('.gameOver');
-        showGameOver.classList.remove('hidden');
+        
+    // hide the questions div
+    var qa = document.querySelector('.quizTime');
+    qa.classList.add('hidden');            
+    
+    // show .gameOver div
+    var showGameOver = document.querySelector('.gameOver');
+    showGameOver.classList.remove('hidden');
+
+    var finalScore = document.getElementById('score');
+    finalScore.textContent = score;
 }
     // displays final score
     // allow user to enter initials to store high score
