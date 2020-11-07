@@ -160,6 +160,9 @@ function showHighScore() {
     // show high score div
     var highScore = document.querySelector('.highScore');
     highScore.classList.remove('hidden');
+    // hide header
+    var header = document.querySelector('header');
+    header.classList.add('hidden');
 
     var highScores = getHighScores();    
 
