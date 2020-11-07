@@ -8,6 +8,7 @@ var questionIndex = 0;
 var score = 0;
 var correctAnswerPoints = 10;
 var incorrectAnswerTimePenalty = 10;
+var maxNumberHighScores = 5;
 
 // Quiz questions and answers
 var quizQuestions = [
@@ -28,6 +29,7 @@ showStart();
 // Hide & unhide divs on Start screen
 function showStart() {
     score = 0;
+    timerEL.textContent = 0;
     // Display starting page
     var quizStart = document.querySelector('.startQuiz');
     quizStart.classList.remove('hidden');     
@@ -40,6 +42,7 @@ function showStart() {
     // Hide High Score screen
     var highScore = document.querySelector('.highScore');
     highScore.classList.add('hidden');
+    document.getElementById('initials').value = '';
 }
 
 // Timer
@@ -152,14 +155,65 @@ function showHighScore() {
     // hide .gameOver div
     var showGameOver = document.querySelector('.gameOver');
     showGameOver.classList.add('hidden');
+    // show high score div
     var highScore = document.querySelector('.highScore');
     highScore.classList.remove('hidden');
+
+    var highScores = getHighScores();    
+
+    var showScoresDiv = document.getElementById('showScores');
+    showScoresDiv.textContent = '';
+
+    for (var i =0; i < highScores.length; i++) {
+        var highScore = highScores[i];
+        var scoreSpan = document.createElement('span');
+        var scoreBr = document.createElement('br');
+        showScoresDiv.appendChild(scoreBr);
+        scoreSpan.textContent = highScore.initials + "-" + highScore.score;
+        showScoresDiv.appendChild(scoreSpan);
+    }
+}
+    
+function getHighScores() {
+    var highScores = JSON.parse(localStorage.getItem('highScores'));
+    if (!highScores) {
+        highScores = [];
+    }
+return highScores;
+}
+
+function submitHighScores() {
+    var highScores = getHighScores();
+    var initials = document.getElementById('initials');
+    highScores.push({initials: initials.value, score: score});
+
+    highScores.sort(function (a,b) {
+        if (a.score > b.score) {
+            return -1;
+        }
+        if (a.score < b.score) {
+            return 1;
+        }
+        return 0;
+    });
+
+    while (highScores.length > maxNumberHighScores) {
+        highScores.pop();
+    }
+
+    localStorage.setItem('highScores', JSON.stringify(highScores));
+
+    showHighScore();
+}
+
+function clearHighScores() {
+    localStorage.removeItem('highScores');
+    showHighScore();       
+    showStart(); 
 }
     // shows numbered list of initials with high scores
     // needs to stop at a certain number of rows, and also make sure that if more high scores
     //  exist than rows, that the rows are in fact showing the highest scores (using local storage)
     // go back button sends user back to startQuiz div
     // clear highscores button clears the list of high scores 
-
-showStart();
 

@@ -35,17 +35,19 @@
     <div class="gameOver">
         <h2>All done!</h2>
         <p>Your final score is <span id="score"></span></p>
-        <button type="button" onclick="showHighScore()">Submit</button>
+        <label for="initials">Enter initials:</label>
+        <input type="text" maxlength="3" id="initials">
+        <button type="button" onclick="submitHighScores()">Submit</button>
     </div>
 
     <!-- page that displays highscores and allows user to clear highscores list -->
     <div class="highScore">
-        <ul>High score
-            <li>Score 1</li>
-            <li>Score 2</li>
-            <li>Score 3</li>
-        </ul>
+        <h2>High Scores</h2>
+        <div id="showScores">
+
+        </div>
         <button type="button" onclick="showStart()">Go Back</button>
+        <button type="button" onclick="clearHighScores()">Clear Highscores</button>
     </div>
 
     <script type="text/javascript" src="./script.js"></script>
