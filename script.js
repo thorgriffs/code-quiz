@@ -47,6 +47,7 @@ function showStart() {
 
 // Timer
 function showTimer() {
+    timerEL.textContent = timeRemaining;
     interval = setInterval(function() {
         timerEL.textContent = timeRemaining;
         timeRemaining--;        
