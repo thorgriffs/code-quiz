@@ -9,11 +9,11 @@
 <body>
     <!-- header to hold the highscore link and the timer-->
     <header>
-        <div id=viewHighScore> <!-- maybe make this a class? -->
-
+        <div id=viewHighScore>
+            View Highscores <!-- add event listener?? -->
         </div>
-        <div id="timer"> <!-- maybe make this a class? -->
-            
+        <div id="timer">
+
         </div>
     </header>
     <!-- Quiz landing page -->
@@ -32,12 +32,17 @@
     <!-- Game over page that displays score and collects player initials -->
     <div class="gameOver">
         <h2>All done!</h2>
-
+        <button type="button" onclick="restartQuiz()">Go Back</button>
 
     </div>
 
-    <!-- page that displays and allows user to clear high score -->
+    <!-- page that displays highscores and allows user to clear highscores list -->
     <div class="highScore">
+        <ul>High score
+            <li>Score 1</li>
+            <li>Score 2</li>
+            <li>Score 3</li>
+        </ul>
 
     </div>
 

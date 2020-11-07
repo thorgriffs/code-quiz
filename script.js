@@ -37,6 +37,10 @@ qa.classList.add('hidden');
 var gameOver = document.querySelector('.gameOver');
 gameOver.classList.add('hidden');
 
+// Hide High Score screen
+var highScore = document.querySelector('.highScore');
+highScore.classList.add('hidden');
+
 
 // Timer
 function showTimer() {
@@ -74,14 +78,14 @@ function startQuiz() {
 // Display Quiz questions and answers
 function showQuestion() {
 
+for (var i = 0; i < quizQuestions.length; i++) {
+    var questionDisplay = document.getElementById('quizQuestion');
+    questionDisplay.textContent = quizQuestions[i].question;
 
-//var gameOver = document.querySelector('.gameOver');
-//gameOver.classList.add('hidden');
-//var qa = document.querySelector('.quizTime');
-//qa.textContent = '';
+    
 
-var questionDisplay = document.getElementById('quizQuestion');
-questionDisplay.textContent = quizQuestions[0].question;
+
+}  
 //qa.appendChild(questionDisplay);
     // display each question and answer set from var quizQuestions
     // determine if game is at the end to then show the gameOver div
@@ -103,9 +107,34 @@ function showGameOver() {
     // once entered, hide and then display the highScore screen
 
 // highScore
+function showHighScore() {
+    var highScore = document.querySelector('.highScore');
+    highScore.classList.remove('hidden');
+}
     // shows numbered list of initials with high scores
     // needs to stop at a certain number of rows, and also make sure that if more high scores
     //  exist than rows, that the rows are in fact showing the highest scores (using local storage)
     // go back button sends user back to startQuiz div
     // clear highscores button clears the list of high scores 
 
+function restartQuiz() {
+    score = 0;    
+    timeRemaining = 60;    
+    showTimer();
+
+    // Display starting page
+    var quizStart = document.querySelector('.startQuiz');
+    quizStart.classList.remove('hidden');  
+    
+    // Hide quiz questions and answers
+    var qa = document.querySelector('.quizTime');
+    qa.classList.add('hidden');    
+
+    // Hide the Game Over screen
+    var gameOver = document.querySelector('.gameOver');
+    gameOver.classList.add('hidden');
+
+    // Hide High Score screen
+    var highScore = document.querySelector('.highScore');
+    highScore.classList.add('hidden');
+}
