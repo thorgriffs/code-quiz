@@ -1,34 +1,12 @@
-// create a var countdownTime = 60; to create the timer that conditionally hides
+// VARIABLES
 
 var timerEL = document.getElementById("timer");
+var highScoreEl = document.getElementById("viewHighScore");
 var timeRemaining = 60
 var interval
 var questionIndex = 0;
 
-// hide the quiz questions and answers
-var qa = document.querySelector('.quizTime');
-qa.classList.add('hidden');    
-
-// hide the .gameOver div
-var gameOver = document.querySelector('.gameOver');
-gameOver.classList.add('hidden');
-
-// Timer
-function showTimer() {
-    interval = setInterval(function() {
-        timerEL.textContent = "Timer: " + timeRemaining;
-        timeRemaining--;        
-        
-        if (timeRemaining <= 0) {
-            timerEL.textContent = "Timer: 00";
-            console.log("You are at zero");
-            showGameOver();            
-        }
-    }, 1000);
-}
-
-// create variables to hold the questions and answers and identify the answers that are true/false
-
+// Quiz questions and answers
 var quizQuestions = [
     {question: "Commonly used data types DO NOT include:", 
     answers: ["strings", ,"booleans", "alerts", "numbers"], 
@@ -51,7 +29,30 @@ var quizQuestions = [
     correctAnswer: 3}
 ]
 
-// function to start the quiz on click of Start Quiz button
+// Hide quiz questions & answers
+var qa = document.querySelector('.quizTime');
+qa.classList.add('hidden');    
+
+// Hide the Game Over screen
+var gameOver = document.querySelector('.gameOver');
+gameOver.classList.add('hidden');
+
+
+// Timer
+function showTimer() {
+    interval = setInterval(function() {
+        timerEL.textContent = "Time: " + timeRemaining;
+        timeRemaining--;        
+        
+        if (timeRemaining <= 0) {
+            timerEL.textContent = "Timer: 00";
+            console.log("You are at zero");
+            showGameOver();            
+        }
+    }, 1000);
+}
+
+// Start Quiz 
 function startQuiz() {
     // set/reset quiz variables
     score = 0;    
@@ -67,20 +68,21 @@ function startQuiz() {
     qa.classList.remove('hidden');    
 
     // once answered, display the next question
-
     showQuestion();
 }
 
-// show questions (function?)
+// Display Quiz questions and answers
 function showQuestion() {
-var gameOver = document.querySelector('.gameOver');
-gameOver.classList.add('hidden');
-var qa = document.querySelector('.quizTime');
-qa.textContent = '';
 
-var questionDisplay = document.createElement('h2');
+
+//var gameOver = document.querySelector('.gameOver');
+//gameOver.classList.add('hidden');
+//var qa = document.querySelector('.quizTime');
+//qa.textContent = '';
+
+var questionDisplay = document.getElementById('quizQuestion');
 questionDisplay.textContent = quizQuestions[0].question;
-qa.appendChild(questionDisplay);
+//qa.appendChild(questionDisplay);
     // display each question and answer set from var quizQuestions
     // determine if game is at the end to then show the gameOver div
     // hide the questions div
@@ -91,10 +93,10 @@ function showGameOver() {
     clearInterval(interval);
         // hide the questions div
         var qa = document.querySelector('.quizTime');
-        qa.classList.remove('hidden');            
+        qa.classList.add('hidden');            
         // show .gameOver div
         var showGameOver = document.querySelector('.gameOver');
-        showGameOver.classList.add('hidden');
+        showGameOver.classList.remove('hidden');
 }
     // displays final score
     // allow user to enter initials to store high score
