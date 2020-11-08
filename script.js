@@ -23,7 +23,6 @@ var quizQuestions = [
     {question: "A very useful tool used during development and debugging for printing content to the debugger is:", answers: ["JavaScript", "terminal/bash", "for loops", "console.log"], correctAnswer: 3}
 ]
 
-// Hide quiz questions & answers
 showStart();
 
 // Hide & unhide divs on Start screen
@@ -129,11 +128,10 @@ function onAnswerClicked(answerIndex) {
             return;
         }
     }
-
     showQuestion();
 }
 
-
+// Shows the All Done screen
 function showGameOver() {
     clearInterval(interval);
         
@@ -148,44 +146,8 @@ function showGameOver() {
     var finalScore = document.getElementById('score');
     finalScore.textContent = score;
 }
-    // displays final score
-    // allow user to enter initials to store high score
-    // once entered, hide and then display the highScore screen
 
-// highScore
-function showHighScore() {
-    clearInterval(interval);
-    // hide the .startQuiz div
-    var quizStart = document.querySelector('.startQuiz');
-    quizStart.classList.add('hidden');    
-    // hide .gameOver div
-    var showGameOver = document.querySelector('.gameOver');
-    showGameOver.classList.add('hidden');
-    // Hide quiz questions and answers
-    var qa = document.querySelector('.quizTime');
-    qa.classList.add('hidden'); 
-    // show high score div
-    var highScore = document.querySelector('.highScore');
-    highScore.classList.remove('hidden');
-    // hide header
-    var header = document.querySelector('header');
-    header.classList.add('hidden');
-
-    var highScores = getHighScores();    
-
-    var showScoresDiv = document.getElementById('showScores');
-    showScoresDiv.textContent = '';
-
-    for (var i =0; i < highScores.length; i++) {
-        var highScore = highScores[i];
-        var scoreSpan = document.createElement('span');
-        var scoreBr = document.createElement('br');
-        showScoresDiv.appendChild(scoreBr);
-        scoreSpan.textContent = highScore.initials + "-" + highScore.score;
-        showScoresDiv.appendChild(scoreSpan);
-    }
-}
-    
+// Determines high scores to display   
 function getHighScores() {
     var highScores = JSON.parse(localStorage.getItem('highScores'));
     if (!highScores) {
@@ -218,14 +180,43 @@ function submitHighScores() {
     showHighScore();
 }
 
+// Displays the high scores list
+function showHighScore() {
+    clearInterval(interval);
+    // hide the .startQuiz div
+    var quizStart = document.querySelector('.startQuiz');
+    quizStart.classList.add('hidden');    
+    // hide .gameOver div
+    var showGameOver = document.querySelector('.gameOver');
+    showGameOver.classList.add('hidden');
+    // Hide quiz questions and answers
+    var qa = document.querySelector('.quizTime');
+    qa.classList.add('hidden'); 
+    // show high score div
+    var highScore = document.querySelector('.highScore');
+    highScore.classList.remove('hidden');
+    // hide header
+    var header = document.querySelector('header');
+    header.classList.add('hidden');
+
+    var highScores = getHighScores();    
+
+    var showScoresDiv = document.getElementById('showScores');
+    showScoresDiv.textContent = '';
+
+    for (var i =0; i < highScores.length; i++) {
+        var highScore = highScores[i];
+        var scoreSpan = document.createElement('span');
+        var scoreBr = document.createElement('br');
+        showScoresDiv.appendChild(scoreBr);
+        scoreSpan.textContent = highScore.initials + "-" + highScore.score;
+        showScoresDiv.appendChild(scoreSpan);
+    }
+}
+
+ // Clears the high scores list on click of the Clear Highscores button 
 function clearHighScores() {
     localStorage.removeItem('highScores');
     showHighScore();       
-    showStart(); 
+    showStart();   
 }
-    // shows numbered list of initials with high scores
-    // needs to stop at a certain number of rows, and also make sure that if more high scores
-    //  exist than rows, that the rows are in fact showing the highest scores (using local storage)
-    // go back button sends user back to startQuiz div
-    // clear highscores button clears the list of high scores 
-
