@@ -28,7 +28,7 @@ This is an assignment to build a timed coding quiz with multiple-choice question
 ### Notes on this project
 
 * I believe this Code Quiz application satisfies all Acceptance Criteria.  However, the mock-up animation displays either a "Correct" or "Wrong" result to the user on selection of an answer button.  I did not implement this functionality.  Mostly, this was due to time constraints. 
-* The High Scores display needs some styling.  The inidvidual score rows need some additional formatting to display them in a numbered list, and to add some background color to each high score entry.  
+* The High Scores display needs some styling.  The indvidual score rows need some additional formatting to display them in a numbered list, and to add some background color to each high score entry.  
 * With this project, I feel I have reached a point where my code works and I am not always sure why.  Google was my best friend on this project.
 
 
